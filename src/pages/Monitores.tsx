@@ -167,55 +167,55 @@ const Monitores = () => {
                     </CollapsibleTrigger>
                   </div>
                 </div>
+                <CollapsibleContent>
+                  <CardContent>
+                    {meteorologicoActivo && (
+                      <FormField
+                        control={form.control}
+                        name="meteorologico.nivelAviso"
+                        render={({ field }) => (
+                          <FormItem className="space-y-3">
+                            <FormLabel>Nivel mínimo de aviso</FormLabel>
+                            <FormControl>
+                              <RadioGroup
+                                onValueChange={field.onChange}
+                                defaultValue={field.value}
+                                className="flex flex-col space-y-1"
+                              >
+                                <div className="flex items-center space-x-2">
+                                  <RadioGroupItem value="amarillo" id="amarillo" />
+                                  <Label htmlFor="amarillo" className="flex items-center">
+                                    <span className="h-3 w-3 rounded-full bg-yellow-500 mr-2"></span>
+                                    Amarillo (Riesgo bajo)
+                                  </Label>
+                                </div>
+                                <div className="flex items-center space-x-2">
+                                  <RadioGroupItem value="naranja" id="naranja" />
+                                  <Label htmlFor="naranja" className="flex items-center">
+                                    <span className="h-3 w-3 rounded-full bg-orange-500 mr-2"></span>
+                                    Naranja (Riesgo importante)
+                                  </Label>
+                                </div>
+                                <div className="flex items-center space-x-2">
+                                  <RadioGroupItem value="rojo" id="rojo" />
+                                  <Label htmlFor="rojo" className="flex items-center">
+                                    <span className="h-3 w-3 rounded-full bg-red-600 mr-2"></span>
+                                    Rojo (Riesgo extremo)
+                                  </Label>
+                                </div>
+                              </RadioGroup>
+                            </FormControl>
+                            <FormDescription>
+                              Seleccione el nivel mínimo de aviso meteorológico que activará una alerta.
+                            </FormDescription>
+                          </FormItem>
+                        )}
+                      />
+                    )}
+                  </CardContent>
+                </CollapsibleContent>
               </Collapsible>
             </CardHeader>
-            <CollapsibleContent>
-              <CardContent>
-                {meteorologicoActivo && (
-                  <FormField
-                    control={form.control}
-                    name="meteorologico.nivelAviso"
-                    render={({ field }) => (
-                      <FormItem className="space-y-3">
-                        <FormLabel>Nivel mínimo de aviso</FormLabel>
-                        <FormControl>
-                          <RadioGroup
-                            onValueChange={field.onChange}
-                            defaultValue={field.value}
-                            className="flex flex-col space-y-1"
-                          >
-                            <div className="flex items-center space-x-2">
-                              <RadioGroupItem value="amarillo" id="amarillo" />
-                              <Label htmlFor="amarillo" className="flex items-center">
-                                <span className="h-3 w-3 rounded-full bg-yellow-500 mr-2"></span>
-                                Amarillo (Riesgo bajo)
-                              </Label>
-                            </div>
-                            <div className="flex items-center space-x-2">
-                              <RadioGroupItem value="naranja" id="naranja" />
-                              <Label htmlFor="naranja" className="flex items-center">
-                                <span className="h-3 w-3 rounded-full bg-orange-500 mr-2"></span>
-                                Naranja (Riesgo importante)
-                              </Label>
-                            </div>
-                            <div className="flex items-center space-x-2">
-                              <RadioGroupItem value="rojo" id="rojo" />
-                              <Label htmlFor="rojo" className="flex items-center">
-                                <span className="h-3 w-3 rounded-full bg-red-600 mr-2"></span>
-                                Rojo (Riesgo extremo)
-                              </Label>
-                            </div>
-                          </RadioGroup>
-                        </FormControl>
-                        <FormDescription>
-                          Seleccione el nivel mínimo de aviso meteorológico que activará una alerta.
-                        </FormDescription>
-                      </FormItem>
-                    )}
-                  />
-                )}
-              </CardContent>
-            </CollapsibleContent>
           </Card>
 
           {/* Monitor de Tráfico */}
@@ -250,80 +250,80 @@ const Monitores = () => {
                     </CollapsibleTrigger>
                   </div>
                 </div>
+                <CollapsibleContent>
+                  <CardContent>
+                    {traficoActivo && (
+                      <div className="space-y-6">
+                        <FormField
+                          control={form.control}
+                          name="trafico.areaInteres"
+                          render={({ field }) => (
+                            <FormItem className="space-y-3">
+                              <FormLabel>Área de interés</FormLabel>
+                              <FormControl>
+                                <RadioGroup
+                                  onValueChange={field.onChange}
+                                  defaultValue={field.value}
+                                  className="flex flex-col space-y-1"
+                                >
+                                  <div className="flex items-center space-x-2">
+                                    <RadioGroupItem value="municipio" id="municipio" />
+                                    <Label htmlFor="municipio">Municipio de residencia</Label>
+                                  </div>
+                                  <div className="flex items-center space-x-2">
+                                    <RadioGroupItem value="ruta" id="ruta" />
+                                    <Label htmlFor="ruta">Ruta específica</Label>
+                                  </div>
+                                  <div className="flex items-center space-x-2">
+                                    <RadioGroupItem value="provincia" id="provincia" />
+                                    <Label htmlFor="provincia">Provincia completa</Label>
+                                  </div>
+                                </RadioGroup>
+                              </FormControl>
+                              <FormDescription>
+                                Seleccione el área geográfica que desea monitorizar para incidencias de tráfico.
+                              </FormDescription>
+                            </FormItem>
+                          )}
+                        />
+                        <FormField
+                          control={form.control}
+                          name="trafico.tipoIncidencia"
+                          render={({ field }) => (
+                            <FormItem className="space-y-3">
+                              <FormLabel>Tipo de incidencia</FormLabel>
+                              <FormControl>
+                                <RadioGroup
+                                  onValueChange={field.onChange}
+                                  defaultValue={field.value}
+                                  className="flex flex-col space-y-1"
+                                >
+                                  <div className="flex items-center space-x-2">
+                                    <RadioGroupItem value="todas" id="todas" />
+                                    <Label htmlFor="todas">Todas las incidencias</Label>
+                                  </div>
+                                  <div className="flex items-center space-x-2">
+                                    <RadioGroupItem value="graves" id="graves" />
+                                    <Label htmlFor="graves">Solo incidencias graves</Label>
+                                  </div>
+                                  <div className="flex items-center space-x-2">
+                                    <RadioGroupItem value="cortes" id="cortes" />
+                                    <Label htmlFor="cortes">Solo cortes de vía</Label>
+                                  </div>
+                                </RadioGroup>
+                              </FormControl>
+                              <FormDescription>
+                                Seleccione el tipo de incidencias de tráfico que activarán una alerta.
+                              </FormDescription>
+                            </FormItem>
+                          )}
+                        />
+                      </div>
+                    )}
+                  </CardContent>
+                </CollapsibleContent>
               </Collapsible>
             </CardHeader>
-            <CollapsibleContent>
-              <CardContent>
-                {traficoActivo && (
-                  <div className="space-y-6">
-                    <FormField
-                      control={form.control}
-                      name="trafico.areaInteres"
-                      render={({ field }) => (
-                        <FormItem className="space-y-3">
-                          <FormLabel>Área de interés</FormLabel>
-                          <FormControl>
-                            <RadioGroup
-                              onValueChange={field.onChange}
-                              defaultValue={field.value}
-                              className="flex flex-col space-y-1"
-                            >
-                              <div className="flex items-center space-x-2">
-                                <RadioGroupItem value="municipio" id="municipio" />
-                                <Label htmlFor="municipio">Municipio de residencia</Label>
-                              </div>
-                              <div className="flex items-center space-x-2">
-                                <RadioGroupItem value="ruta" id="ruta" />
-                                <Label htmlFor="ruta">Ruta específica</Label>
-                              </div>
-                              <div className="flex items-center space-x-2">
-                                <RadioGroupItem value="provincia" id="provincia" />
-                                <Label htmlFor="provincia">Provincia completa</Label>
-                              </div>
-                            </RadioGroup>
-                          </FormControl>
-                          <FormDescription>
-                            Seleccione el área geográfica que desea monitorizar para incidencias de tráfico.
-                          </FormDescription>
-                        </FormItem>
-                      )}
-                    />
-                    <FormField
-                      control={form.control}
-                      name="trafico.tipoIncidencia"
-                      render={({ field }) => (
-                        <FormItem className="space-y-3">
-                          <FormLabel>Tipo de incidencia</FormLabel>
-                          <FormControl>
-                            <RadioGroup
-                              onValueChange={field.onChange}
-                              defaultValue={field.value}
-                              className="flex flex-col space-y-1"
-                            >
-                              <div className="flex items-center space-x-2">
-                                <RadioGroupItem value="todas" id="todas" />
-                                <Label htmlFor="todas">Todas las incidencias</Label>
-                              </div>
-                              <div className="flex items-center space-x-2">
-                                <RadioGroupItem value="graves" id="graves" />
-                                <Label htmlFor="graves">Solo incidencias graves</Label>
-                              </div>
-                              <div className="flex items-center space-x-2">
-                                <RadioGroupItem value="cortes" id="cortes" />
-                                <Label htmlFor="cortes">Solo cortes de vía</Label>
-                              </div>
-                            </RadioGroup>
-                          </FormControl>
-                          <FormDescription>
-                            Seleccione el tipo de incidencias de tráfico que activarán una alerta.
-                          </FormDescription>
-                        </FormItem>
-                      )}
-                    />
-                  </div>
-                )}
-              </CardContent>
-            </CollapsibleContent>
           </Card>
 
           {/* Monitor Empresarial */}
@@ -358,61 +358,61 @@ const Monitores = () => {
                     </CollapsibleTrigger>
                   </div>
                 </div>
+                <CollapsibleContent>
+                  <CardContent>
+                    {empresarialActivo && (
+                      <FormField
+                        control={form.control}
+                        name="empresarial.actos"
+                        render={() => (
+                          <FormItem>
+                            <div className="mb-4">
+                              <FormLabel>Tipos de actos BORME a monitorizar</FormLabel>
+                              <FormDescription>
+                                Seleccione los tipos de publicaciones del Boletín Oficial del Registro Mercantil que activarán una alerta.
+                              </FormDescription>
+                            </div>
+                            {actosBorme.map((acto) => (
+                              <FormField
+                                key={acto.id}
+                                control={form.control}
+                                name="empresarial.actos"
+                                render={({ field }) => {
+                                  return (
+                                    <FormItem
+                                      key={acto.id}
+                                      className="flex flex-row items-start space-x-3 space-y-0"
+                                    >
+                                      <FormControl>
+                                        <Checkbox
+                                          checked={field.value?.includes(acto.id)}
+                                          onCheckedChange={(checked) => {
+                                            return checked
+                                              ? field.onChange([...field.value, acto.id])
+                                              : field.onChange(
+                                                  field.value?.filter(
+                                                    (value) => value !== acto.id
+                                                  )
+                                                )
+                                          }}
+                                        />
+                                      </FormControl>
+                                      <FormLabel className="font-normal">
+                                        {acto.label}
+                                      </FormLabel>
+                                    </FormItem>
+                                  )
+                                }}
+                              />
+                            ))}
+                          </FormItem>
+                        )}
+                      />
+                    )}
+                  </CardContent>
+                </CollapsibleContent>
               </Collapsible>
             </CardHeader>
-            <CollapsibleContent>
-              <CardContent>
-                {empresarialActivo && (
-                  <FormField
-                    control={form.control}
-                    name="empresarial.actos"
-                    render={() => (
-                      <FormItem>
-                        <div className="mb-4">
-                          <FormLabel>Tipos de actos BORME a monitorizar</FormLabel>
-                          <FormDescription>
-                            Seleccione los tipos de publicaciones del Boletín Oficial del Registro Mercantil que activarán una alerta.
-                          </FormDescription>
-                        </div>
-                        {actosBorme.map((acto) => (
-                          <FormField
-                            key={acto.id}
-                            control={form.control}
-                            name="empresarial.actos"
-                            render={({ field }) => {
-                              return (
-                                <FormItem
-                                  key={acto.id}
-                                  className="flex flex-row items-start space-x-3 space-y-0"
-                                >
-                                  <FormControl>
-                                    <Checkbox
-                                      checked={field.value?.includes(acto.id)}
-                                      onCheckedChange={(checked) => {
-                                        return checked
-                                          ? field.onChange([...field.value, acto.id])
-                                          : field.onChange(
-                                              field.value?.filter(
-                                                (value) => value !== acto.id
-                                              )
-                                            )
-                                      }}
-                                    />
-                                  </FormControl>
-                                  <FormLabel className="font-normal">
-                                    {acto.label}
-                                  </FormLabel>
-                                </FormItem>
-                              )
-                            }}
-                          />
-                        ))}
-                      </FormItem>
-                    )}
-                  />
-                )}
-              </CardContent>
-            </CollapsibleContent>
           </Card>
 
           <div className="flex justify-end">
