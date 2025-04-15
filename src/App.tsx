@@ -8,7 +8,8 @@ import Login from "./pages/Login";
 import Dashboard from "./pages/Dashboard";
 import Clientes from "./pages/Clientes";
 import Monitores from "./pages/Monitores";
-import Alertas from "./pages/Alertas";  // Import the new Alertas page
+import Alertas from "./pages/Alertas";  
+import Configuracion from "./pages/Configuracion"; // Import the new Configuracion page
 import AppLayout from "./layouts/AppLayout";
 import NotFound from "./pages/NotFound";
 
@@ -33,7 +34,7 @@ const App = () => (
             <Route path="/clientes" element={<Clientes />} />
             <Route path="/monitores" element={<Monitores />} />
             <Route path="/alertas" element={<Alertas />} />
-            <Route path="/configuracion" element={<h1 className="text-3xl font-bold">Configuración</h1>} />
+            <Route path="/configuracion" element={<Configuracion />} />
           </Route>
           
           {/* Ruta de 404 */}
