@@ -1,3 +1,4 @@
+
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -5,6 +6,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Login from "./pages/Login";
 import Dashboard from "./pages/Dashboard";
+import Clientes from "./pages/Clientes";
 import AppLayout from "./layouts/AppLayout";
 import NotFound from "./pages/NotFound";
 
@@ -26,7 +28,7 @@ const App = () => (
           {/* Rutas protegidas con AppLayout */}
           <Route element={<AppLayout />}>
             <Route path="/dashboard" element={<Dashboard />} />
-            <Route path="/clientes" element={<h1 className="text-3xl font-bold">Cartera de Clientes</h1>} />
+            <Route path="/clientes" element={<Clientes />} />
             <Route path="/monitores" element={<h1 className="text-3xl font-bold">Configurar Monitores</h1>} />
             <Route path="/alertas" element={<h1 className="text-3xl font-bold">Historial de Alertas</h1>} />
             <Route path="/informes" element={<h1 className="text-3xl font-bold">Informes</h1>} />
