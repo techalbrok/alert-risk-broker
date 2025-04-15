@@ -18,6 +18,9 @@ export default {
 			}
 		},
 		extend: {
+			fontFamily: {
+				sans: ['Inter', 'sans-serif'],
+			},
 			colors: {
 				border: 'hsl(var(--border))',
 				input: 'hsl(var(--input))',
@@ -27,6 +30,24 @@ export default {
 				primary: {
 					DEFAULT: 'hsl(var(--primary))',
 					foreground: 'hsl(var(--primary-foreground))'
+				},
+				riesgo: {
+					50: '#EBF3FE',
+					100: '#D2E2FC',
+					200: '#9CBEF9',
+					300: '#5D93F0',
+					400: '#1976D2',  // primary riesgo color
+					500: '#0D47A1',  // darker shade
+					600: '#0A3B8C',
+					700: '#072F70',
+					800: '#052052',
+					900: '#031230',
+				},
+				alerta: {
+					info: '#2196F3',
+					success: '#4CAF50',
+					warning: '#FF9800',
+					danger: '#F44336',
 				},
 				secondary: {
 					DEFAULT: 'hsl(var(--secondary))',
