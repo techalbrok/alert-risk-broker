@@ -7,6 +7,7 @@ import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Login from "./pages/Login";
 import Dashboard from "./pages/Dashboard";
 import Clientes from "./pages/Clientes";
+import Monitores from "./pages/Monitores";
 import AppLayout from "./layouts/AppLayout";
 import NotFound from "./pages/NotFound";
 
@@ -29,9 +30,8 @@ const App = () => (
           <Route element={<AppLayout />}>
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/clientes" element={<Clientes />} />
-            <Route path="/monitores" element={<h1 className="text-3xl font-bold">Configurar Monitores</h1>} />
+            <Route path="/monitores" element={<Monitores />} />
             <Route path="/alertas" element={<h1 className="text-3xl font-bold">Historial de Alertas</h1>} />
-            <Route path="/informes" element={<h1 className="text-3xl font-bold">Informes</h1>} />
             <Route path="/configuracion" element={<h1 className="text-3xl font-bold">Configuración</h1>} />
           </Route>
           
