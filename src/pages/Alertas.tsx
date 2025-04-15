@@ -40,8 +40,26 @@ import { AlertDetail } from "@/components/alert-detail";
 import { es } from "date-fns/locale";
 import { cn } from "@/lib/utils";
 
-// Demo data for alerts
-const demoAlerts = [
+// Define the AlertType and AlertStatus as union types
+export type AlertType = "meteo" | "trafico" | "empresa";
+export type AlertStatus = "nueva" | "vista" | "gestionada";
+export type AlertSeverity = "low" | "medium" | "high";
+
+// Define the Alert interface
+interface Alert {
+  id: string;
+  clientName: string;
+  type: AlertType;
+  description: string;
+  date: string;
+  status: AlertStatus;
+  severity: AlertSeverity;
+  source: string;
+  details: string;
+}
+
+// Demo data for alerts - now with explicit typing
+const demoAlerts: Alert[] = [
   {
     id: "1",
     clientName: "Seguros ABC S.A.",
@@ -99,9 +117,6 @@ const demoAlerts = [
   },
 ];
 
-type AlertType = "meteo" | "trafico" | "empresa";
-type AlertStatus = "nueva" | "vista" | "gestionada";
-
 export default function Alertas() {
   // State for filters and search
   const [searchTerm, setSearchTerm] = useState("");
@@ -110,7 +125,7 @@ export default function Alertas() {
   const [filterStatus, setFilterStatus] = useState<AlertStatus | null>(null);
   const [filterDateFrom, setFilterDateFrom] = useState<Date | null>(null);
   const [filterDateTo, setFilterDateTo] = useState<Date | null>(null);
-  const [selectedAlert, setSelectedAlert] = useState<typeof demoAlerts[0] | null>(null);
+  const [selectedAlert, setSelectedAlert] = useState<Alert | null>(null);
   
   // Filter alerts based on all criteria
   const filteredAlerts = demoAlerts.filter(alert => {
@@ -429,7 +444,7 @@ export default function Alertas() {
                     <TableCell className="font-medium">{alert.clientName}</TableCell>
                     <TableCell>
                       <div className="flex items-center gap-2">
-                        {getAlertIcon(alert.type as AlertType)}
+                        {getAlertIcon(alert.type)}
                         <span>
                           {alert.type === "meteo" ? "Meteorológico" : 
                           alert.type === "trafico" ? "Tráfico" : "Empresarial"}
@@ -438,7 +453,7 @@ export default function Alertas() {
                     </TableCell>
                     <TableCell>{alert.description}</TableCell>
                     <TableCell>{formatDate(alert.date)}</TableCell>
-                    <TableCell>{getStatusBadge(alert.status as AlertStatus)}</TableCell>
+                    <TableCell>{getStatusBadge(alert.status)}</TableCell>
                     <TableCell className="text-right">
                       <Button 
                         variant="ghost" 

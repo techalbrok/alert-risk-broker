@@ -1,4 +1,3 @@
-
 import { CloudSun, Truck, Building2, ExternalLink } from "lucide-react";
 import { cn } from "@/lib/utils";
 import {
@@ -11,8 +10,7 @@ import {
 } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-
-type AlertType = "meteo" | "trafico" | "empresa";
+import { AlertType, AlertSeverity } from "@/pages/Alertas";
 
 interface AlertCardProps {
   id: string;
@@ -22,7 +20,7 @@ interface AlertCardProps {
   clientName: string;
   date: string;
   isNew?: boolean;
-  severity?: "low" | "medium" | "high";
+  severity?: AlertSeverity;
   className?: string;
 }
 
